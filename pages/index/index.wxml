@@ -13,5 +13,7 @@
     <button class='btn' bindtap="weightFn">echarts-wx</button>
     <button class='btn' bindtap="weightFn2">chartsJS</button>
     <button class='btn' bindtap="voiceFn">语音鼓励</button>
+    <button class='btn' bindtap="sportFn">运动能力</button>
+    <button class='btn' bindtap="photoFn">保存照片</button>
   </view>
 </view>

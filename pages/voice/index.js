@@ -1,4 +1,41 @@
 // pages/voice/index.js
+const recorderManager = wx.getRecorderManager()
+let Path = null;
+let innerAudioContext = null;
+recorderManager.onStart(() => {
+  console.log('recorder start')
+  wx.showToast({
+    title: '正在录音',
+    image: '/sources/voice.png',
+    duration: 10000
+  })
+})
+recorderManager.onPause(() => {
+  console.log('recorder pause')
+})
+recorderManager.onStop((res) => {
+  console.log('recorder stop', res)
+  const { tempFilePath } = res
+  Path = tempFilePath;
+  wx.showToast({
+    title: '录音完成',
+    icon: 'success',
+    duration: 1000
+  })
+})
+recorderManager.onFrameRecorded((res) => {
+  const { frameBuffer } = res
+  console.log('frameBuffer.byteLength', frameBuffer.byteLength)
+})
+
+const options = {
+  duration: 10000,
+  sampleRate: 44100,
+  numberOfChannels: 1,
+  encodeBitRate: 192000,
+  format: 'aac',
+  frameSize: 50
+}
 Page({
 
   /**
@@ -12,40 +49,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    const recorderManager = wx.getRecorderManager()
-
-    recorderManager.onStart(() => {
-      console.log('recorder start')
-    })
-    recorderManager.onPause(() => {
-      console.log('recorder pause')
-    })
-    recorderManager.onStop((res) => {
-      console.log('recorder stop', res)
-      const { tempFilePath } = res
-    })
-    recorderManager.onFrameRecorded((res) => {
-      const { frameBuffer } = res
-      console.log('frameBuffer.byteLength', frameBuffer.byteLength)
-    })
-
-    const options = {
-      duration: 10000,
-      sampleRate: 44100,
-      numberOfChannels: 1,
-      encodeBitRate: 192000,
-      format: 'aac',
-      frameSize: 50
-    }
-
+  },
+  startFn:function () {
     recorderManager.start(options)
+  },
+  stopFn: function () {
+    recorderManager.stop()
+  },
+  playFn: function () {
+    if (Path) {
+      innerAudioContext = wx.createInnerAudioContext()
+      innerAudioContext.autoplay = true
+      innerAudioContext.src = Path
+      innerAudioContext.onPlay(() => {
+        wx.showToast({
+          title: '正在播放',
+          image: '/sources/voice.png',
+          duration: 10000
+        })
+      })
+      innerAudioContext.onEnded(()=> {
+        wx.showToast({
+          title: '播放完成',
+          icon: 'success',
+          duration: 1000
+        })
+      })
+      innerAudioContext.onError((res) => {
+        console.log(res.errMsg)
+        console.log(res.errCode)
+      })
+    }
   },
 
   /**
@@ -66,7 +106,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
   },
 
   /**

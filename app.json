@@ -6,7 +6,9 @@
     "pages/wxrun/index",
     "pages/weight/index",
     "pages/weight2/index",
-    "pages/voice/index"
+    "pages/voice/index",
+    "pages/sport/index",
+    "pages/photo/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

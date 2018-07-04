@@ -39,6 +39,16 @@ Page({
       url: '/pages/voice/index',
     })
   },
+  sportFn: () => {
+    wx.navigateTo({
+      url: '/pages/sport/index',
+    })
+  },
+  photoFn: () => {
+    wx.navigateTo({
+      url: '/pages/photo/index',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

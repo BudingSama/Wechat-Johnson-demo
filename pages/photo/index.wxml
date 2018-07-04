@@ -1,0 +1,4 @@
+<!--pages/photo/index.wxml-->
+<button bindtap='chooseFn'>选择照片</button>
+<button bindtap='saveFn'>保存照片</button>
+<image src='{{ url }}'></image>
