@@ -1,0 +1,4 @@
+<!--pages/bluetooth/index.wxml-->
+<view wx:for="{{deviceList}}">
+  {{item.name}}：{{item.deviceId}}
+</view>

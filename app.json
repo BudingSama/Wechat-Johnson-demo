@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/bluetooth/index",
+    "pages/wxrun/index",
+    "pages/weight/index",
+    "pages/weight2/index",
+    "pages/voice/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#eee",
+    "navigationBarTitleText": "DEMO",
+    "navigationBarTextStyle":"black"
+  }
+}

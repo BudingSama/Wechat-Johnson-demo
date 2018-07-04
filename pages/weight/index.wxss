@@ -1,0 +1,41 @@
+/**index.wxss**/
+ec-canvas {
+  width: 100%;
+  height: 60%;
+}
+ .container {
+  position: absolute;   
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.state{
+  height: 100px;
+  width: 100%;
+}
+.jiantou{
+    width:0;
+    height:0;
+    border-width:15px 15px 0;
+    border-style:solid;
+    border-color:#333 transparent transparent;/*灰 透明 透明 */
+    position:relative;
+    margin-bottom: -35px;
+    /* animation: startAn 1s forwards ease;
+    animation-delay: 0.3s; */
+}
+
+/* @keyframes startAn{
+  from {
+    left:0px;
+    }
+  to {
+    left:200px;
+    }
+} */
