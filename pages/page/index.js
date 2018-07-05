@@ -1,32 +1,17 @@
-
-const WXBizDataCrypt = require('../../utils/WXBizDataCrypt.js');
-const app = getApp()
-// pages/wxrun/index.js
+// pages/page/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    animationData: {},
-    source: [],
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const _this = this;
-    wx.getWeRunData({
-      success(res) {
-        var pc = new WXBizDataCrypt(app.globalData.AppId, app.globalData.session_key)
-        var data = pc.decryptData(res.encryptedData, res.iv)
-        _this.setData({
-          source: data.stepInfoList
-        });
-        console.log('解密后 data: ', data)
-      }
-    })
+  
   },
 
   /**
@@ -34,24 +19,29 @@ Page({
    */
   onReady: function () {
     wx.setNavigationBarTitle({
-      title: '微信运动'
+      title: '页面转发'
     })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
+  onShow: function () {
+  
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+  
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+  
   },
 
   /**
@@ -71,7 +61,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  }
+  onShareAppMessage: function (res) {
+    console.log(res);
+    return {
+      title: '我在转发消息',
+      imageUrl: '../../sources/123.png',
+      path: '/pages/index/index',
+      success: function (res) {
+        console.log(res);
+      },
+    }
+  },
 })

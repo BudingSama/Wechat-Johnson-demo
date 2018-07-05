@@ -15,5 +15,9 @@
     <button class='btn' bindtap="voiceFn">语音鼓励</button>
     <button class='btn' bindtap="sportFn">运动能力</button>
     <button class='btn' bindtap="photoFn">保存照片</button>
+    <button class='btn' bindtap="fingerFn">指纹识别</button>
+    <button class='btn' bindtap="pageFn">页面转发</button>
+    <button class='btn' bindtap="shakeFn">手机振动</button>
+    <button class='btn' bindtap="locationFn">当前位置</button>
   </view>
 </view>

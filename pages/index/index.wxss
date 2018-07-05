@@ -21,6 +21,8 @@
   margin-top: 50px;
 }
 .btn {
-  width: 100%;
-  margin-top: 5px;
+  width: 45%;
+  margin: 0 2%;
+  margin-top: 2%;
+  float: left;
 }

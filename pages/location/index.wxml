@@ -1,0 +1,13 @@
+<!--pages/location/index.wxml-->
+<view style="text-align:center;margin: 30px 0">
+<view>当前经度：{{ locate.longitude }}</view>
+<view>当前纬度：{{ locate.latitude }}</view>
+<view>当前海拔：{{ locate.altitude }}</view>
+</view>
+<button bindtap='chooseFn'>选择位置</button>
+<view style="text-align:center;">
+<view>地址：{{ nowlocation.address }}</view>
+<view>选择经度：{{ nowlocation.longitude }}</view>
+<view>选择纬度：{{ nowlocation.latitude }}</view>
+</view>
+<button bindtap='lookFn'>查看定位</button>

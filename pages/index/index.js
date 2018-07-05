@@ -49,6 +49,26 @@ Page({
       url: '/pages/photo/index',
     })
   },
+  fingerFn: () => {
+    wx.navigateTo({
+      url: '/pages/finger/index',
+    })
+  },
+  pageFn: () => {
+    wx.navigateTo({
+      url: '/pages/page/index',
+    })
+  },
+  shakeFn: () => {
+    wx.navigateTo({
+      url: '/pages/shake/index',
+    })
+  },
+  locationFn: () => {
+    wx.navigateTo({
+      url: '/pages/location/index',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

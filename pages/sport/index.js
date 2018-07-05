@@ -39,7 +39,7 @@ function initChart(canvas, width, height) {
       data: [
         {
           value: [4300, 10000, 28000, 35000, 50000, 19000],
-          name: '预算分配（Allocated Budget）'
+          name: 'sport'
         }
       ]
     }]
@@ -52,7 +52,7 @@ function initChart(canvas, width, height) {
 Page({
   onShareAppMessage: function (res) {
     return {
-      title: 'ECharts 可以在微信小程序中使用啦！',
+      title: 'xxxxx',
       path: '/pages/index/index',
       success: function () { },
       fail: function () { }
@@ -66,7 +66,7 @@ Page({
   },
   onReady: function () {
     wx.setNavigationBarTitle({
-      title: '体重曲线'
+      title: '运动能力'
     })
   },
   onShow: function () {

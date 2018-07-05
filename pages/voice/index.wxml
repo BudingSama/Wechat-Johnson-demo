@@ -2,3 +2,7 @@
 <button bindtap='startFn'>开始录音</button>
 <button bindtap='stopFn'>停止录音</button>
 <button bindtap='playFn'>播放录音</button>
+<button bindtap='saveFn'>录音存储</button>
+<view wx:for="{{fileList}}">
+  {{item.filePath}}
+</view>

@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
+    const _this = this;
     this.deviceInfo = this.promise.getDeviceInfo();
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -13,6 +14,13 @@ App({
         if (res.code) {
           //发起网络请求
           console.log('code:'+res.code);
+          wx.request({
+            url: `http://192.168.3.90:8899/user/openid/?code=${res.code}`,
+            success:function (data) {
+              _this.globalData.openid = data.data.data.openid;
+              _this.globalData.session_key = data.data.data.session_key;
+            }
+          })
         } else {
           console.log('登录失败！' + res.errMsg)
         }
@@ -54,7 +62,11 @@ App({
     }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openid:null,
+    session_key:null,
+    AppId:'wx84a42ece25ad6ca7',
+    SECRET: 'c5f041f802be2ec7e64ee881e0715385'
   },
   getGid: (function () {//全局唯一id
     let id = 0

@@ -8,7 +8,11 @@
     "pages/weight2/index",
     "pages/voice/index",
     "pages/sport/index",
-    "pages/photo/index"
+    "pages/photo/index",
+    "pages/finger/index",
+    "pages/page/index",
+    "pages/shake/index",
+    "pages/location/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

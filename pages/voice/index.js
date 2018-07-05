@@ -42,7 +42,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    fileList: [1,1],
   },
 
   /**
@@ -87,12 +87,32 @@ Page({
       })
     }
   },
+  saveFn: function () {
+    const _this = this;
+    if (Path) {
+      wx.saveFile({
+        tempFilePath: Path,
+        success: function (res) {
+          wx.getSavedFileList({
+            success: function (res) {
+              console.log(res);
+              _this.setData({
+                fileList: res.fileList,
+              });
+            }
+          })
+        }
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.setNavigationBarTitle({
+      title: '语音鼓励'
+    })
   },
 
   /**
