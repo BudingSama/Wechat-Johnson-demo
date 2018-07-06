@@ -16,7 +16,7 @@ wx.stopBluetoothDevicesDiscovery(OBJECT)
 - 详情参考[微信官方加密规则](https://developers.weixin.qq.com/miniprogram/dev/api/signature.html)
 
 ```
-var pc = new WXBizDataCrypt(app.globalData.AppId, app.globalData.session_key)
+const pc = new WXBizDataCrypt(app.globalData.AppId, app.globalData.session_key)
         var data = pc.decryptData(res.encryptedData, res.iv)
         _this.setData({
           source: data.stepInfoList
@@ -35,6 +35,36 @@ const option = {
     series: [{}],
 }
 ```
+
+```
+const option = {
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+        areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    
+    
+         // 0% 处的颜色   
+        offset: 0, color: 'rgb(226,118,139)'  },
+       {
+        
+        // 100% 处的颜色
+       offset: 1, color: 'white' 
+      }], false)
+        }
+    }]
+};
+```
+
 ## # 语音鼓励
 - 废弃~~wx.startRecord(OBJECT)~~
 - 废弃~~wx.stopRecord()~~
