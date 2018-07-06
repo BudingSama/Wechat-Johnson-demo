@@ -28,6 +28,8 @@ const pc = new WXBizDataCrypt(app.globalData.AppId, app.globalData.session_key)
 - [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin)
 - [chartjs-wechat-mini-app](https://github.com/xiabingwu/chartjs-wechat-mini-app)
 
+> 标准
+
 ```
 const option = {
     xAxis: {},
@@ -35,6 +37,7 @@ const option = {
     series: [{}],
 }
 ```
+> 折线图
 
 ```
 const option = {
@@ -64,6 +67,117 @@ const option = {
     }]
 };
 ```
+> 柱状图
+```
+option = {
+    xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        position: 'top',
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel:{
+            show: false,
+            
+        },
+    },
+    series: [{
+        data: [120, 200, 150, 80, 70, 110, 130],
+        type: 'bar',
+        itemStyle: {
+    //柱形图圆角，鼠标移上去效果，如果只是一个数字则说明四个参数全部设置为那么多
+    emphasis: {
+        barBorderRadius: 30
+    },
+    normal: {
+        //柱形图圆角，初始化效果
+        barBorderRadius:[50, 50, 0,0],
+        label: {
+            show: false,//是否展示
+            textStyle: {
+                fontWeight:'bolder',
+                fontSize : '12',
+                fontFamily : '微软雅黑',
+            }
+        },
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    
+    
+         // 0% 处的颜色   
+        offset: 0, color: 'rgb(203,12,51)'  },
+       {
+        
+        // 100% 处的颜色
+       offset: 1, color: 'rgb(226,118,139)' 
+      }], false),
+    }
+},
+    }]
+};
+
+```
+> 雷达图
+
+```
+option = {
+    title: {
+    },
+    backgroundColor:'black',
+    tooltip: {},
+    radar: {
+        name: {
+            textStyle: {
+                color: '#fff',
+                borderRadius: 3,
+                padding: [3, 5]
+           }
+        },
+        splitLine: {
+            lineStyle: {
+                color: 'white',
+                width: 3
+            }
+        },
+        axisLine:{
+                lineStyle:{
+                    color:'grey',
+                }
+            },
+        axisTick:{
+            lineStyle:{
+                color:'white',
+            }
+        },
+        splitArea: {
+            areaStyle: {
+                color: [],
+            }
+        },
+        indicator: [
+           { name: '运动', max: 6500},
+           { name: '运动', max: 16000},
+           { name: '运动', max: 30000},
+           { name: '运动', max: 38000},
+           { name: '运动', max: 52000},
+        ]
+    },
+    series: [{
+        name: 'demo',
+        type: 'radar',
+        data : [
+            {
+                value : [4300, 10000, 28000, 35000, 50000, 19000],
+                name : 'people'
+            }
+        ],
+        itemStyle:{
+            color:'rgb(245,34,33)',
+        },
+    }]
+};
+```
+
 
 ## # 语音鼓励
 - 废弃~~wx.startRecord(OBJECT)~~
