@@ -9,9 +9,10 @@ function initChart(canvas, width, height) {
   });
   canvas.setChart(chart);
 
-  var option = {
+  const option = {
     xAxis: {
       type: 'category',
+      boundaryGap: false,
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
@@ -20,9 +21,19 @@ function initChart(canvas, width, height) {
     series: [{
       data: [820, 932, 901, 934, 1290, 1330, 1320],
       type: 'line',
-      smooth: true,
-      animationEasing: 'quarticInOut',
-      animationDuration: 1000
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+
+
+          // 0% 处的颜色   
+          offset: 0, color: 'rgb(226,118,139)'
+        },
+        {
+
+          // 100% 处的颜色
+          offset: 1, color: 'white'
+        }], false)
+      }
     }]
   };
 

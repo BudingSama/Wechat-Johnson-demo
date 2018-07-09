@@ -12,7 +12,8 @@
     "pages/finger/index",
     "pages/page/index",
     "pages/shake/index",
-    "pages/location/index"
+    "pages/location/index",
+    "pages/choose/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
