@@ -13,7 +13,7 @@ App({
       success: function (res) {
         if (res.code) {
           //发起网络请求
-          console.log('code:'+res.code);
+          // console.log('code:'+res.code);
           wx.request({
             url: `http://192.168.3.90:8899/user/openid/?code=${res.code}`,
             success:function (data) {
@@ -29,7 +29,7 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        console.log(res);
+        // console.log(res);
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({

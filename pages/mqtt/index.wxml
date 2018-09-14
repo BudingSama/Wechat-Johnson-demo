@@ -1,0 +1,4 @@
+<!--pages/mqtt/index.wxml-->
+<button bindtap='doConnect'>connect</button>
+<button bindtap='doSubscribe'>subscribe</button>
+<button bindtap='doPublish'>publish</button>

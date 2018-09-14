@@ -74,6 +74,26 @@ Page({
       url: '/pages/choose/index',
     })
   },
+  pickerFn: () => {
+    wx.navigateTo({
+      url: '/pages/picker/index',
+    })
+  },
+  takephotoFn:()=>{
+    wx.navigateTo({
+      url: '/pages/photoshow/index',
+    })
+  },
+  wifiFn:()=>{
+    wx.navigateTo({
+      url: '/pages/wifi/index',
+    })
+  },
+  mqttFn:()=>{
+    wx.navigateTo({
+      url: '/pages/mqtt/index',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

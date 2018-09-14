@@ -1,0 +1,3 @@
+<!--pages/photoshow/index.wxml-->
+<camera device-position="back" flash="off" binderror="error" style="width: 100%; height: 100%;"></camera>
+<button type="primary" bindtap="takePhoto">拍照</button>

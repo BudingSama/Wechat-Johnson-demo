@@ -1,0 +1,19 @@
+<!--pages/picker/index.wxml-->
+<button bindtap='showPicker'>开启picker</button>
+
+
+
+<view wx:if="{{ isShow }}" class='picker-container'>
+  <view class='picker-mask'></view>
+  <picker-view indicator-style="height: 50px;" class='picker-wrap' value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+</view>
