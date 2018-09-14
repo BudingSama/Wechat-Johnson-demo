@@ -251,6 +251,138 @@ wx.chooseLocation(OBJECT)
 wx.openLocation(OBJECT)
 
 ```
+## # 滚动选择
+
+```
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      当前选择：{{array[index]}}
+    </view>
+  </picker>
+```
+## # 调用拍照
+
+```
+  onLoad: function (options) {
+    if (wx.createCameraContext()) {
+      this.cameraContext = wx.createCameraContext('myCamera')
+    } else {
+      // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+      wx.showModal({
+        title: '提示',
+        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+      })
+    }
+
+  },
+  startTakePhoto: function () {
+    this.cameraContext.takePhoto({
+
+    })
+  },
+```
+## # WIFI配网[测试]
+
+```
+  onLoad: function (options) {
+    wx.startLocalServiceDiscovery({
+      // 当前手机所连的局域网下有一个 _http._tcp. 类型的服务
+      serviceType: '_http._tcp.',
+      success: function(res){
+        console.log(res);
+      },
+      fail: function(res){
+        console.log(res);
+      }
+    })
+    wx.onLocalServiceFound(res => {
+      console.log(res);
+    })
+  },
+```
+## # MQTT订阅
+- 需引入 paho-mqtt-min.js
+
+```
+var { Client, Message } = require('paho-mqtt-min.js');
+```
+- 实例化连接
+
+```
+    client.connect({
+      useSSL: true,
+      cleanSession: true,
+      keepAliveInterval: 30,
+      onSuccess: function () {
+        wx.showToast({
+          title: '连接成功'
+        })
+        that.data.client = client
+        client.onMessageArrived = function (msg) {
+          console.log(msg.payloadString);
+          if (typeof that.data.onMessageArrived === 'function') {
+            return that.data.onMessageArrived(msg)
+          }
+        }
+
+        client.onConnectionLost = function (responseObject) {
+          if (typeof that.data.onConnectionLost === 'function') {
+            return that.data.onConnectionLost(responseObject)
+          }
+          if (responseObject.errorCode !== 0) {
+            console.log("onConnectionLost:" + responseObject.errorMessage);
+          }
+        }
+      }
+    });
+```
+- 订阅 mqtt
+
+```
+  subscribe: function (filter, subscribeOptions) {
+    // 订阅
+    var client = this.data.client;
+    if (client && client.isConnected()) {
+      wx.showToast({
+        title: '订阅成功'
+      })
+      return client.subscribe(filter, subscribeOptions);
+    }
+    wx.showToast({
+      title: '订阅失败',
+      icon: 'success',
+      duration: 2000
+    })
+  },
+```
+- 发布 mqtt
+
+```
+  publish: function (topic, message, qos = 0, retained = false) {
+    // 发布
+    var client = this.data.client;
+    if (client && client.isConnected()) {
+      var message = new Message(message);
+      message.destinationName = topic;
+      message.qos = qos;
+      message.retained = retained;
+      wx.showToast({
+        title: '发布成功'
+      })
+      return client.send(message);
+    }
+    wx.showToast({
+      title: '发送失败',
+      icon: 'success',
+      duration: 2000
+    })
+  },
+```
+
+
+
+
+
 
 
 
