@@ -1,2 +1,6 @@
 <!--pages/wifi/index.wxml-->
-<text>pages/wifi/index.wxml</text>
+<span>SSID</span>
+<input bindinput="inputA" style="border:1px solid black;margin:0 30px"></input>
+<span>PASSWORD</span>
+<input bindinput="inputB" style="border:1px solid black;margin:0 30px"></input>
+<button bindtap="start">开始配网</button>

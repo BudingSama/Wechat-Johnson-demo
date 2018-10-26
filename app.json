@@ -17,7 +17,8 @@
     "pages/picker/index",
     "pages/photoshow/index",
     "pages/wifi/index",
-    "pages/mqtt/index"
+    "pages/mqtt/index",
+    "pages/bletest/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

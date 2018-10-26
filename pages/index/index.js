@@ -94,6 +94,11 @@ Page({
       url: '/pages/mqtt/index',
     })
   },
+  bleFn:()=>{
+    wx.navigateTo({
+      url: '/pages/bletest/index',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

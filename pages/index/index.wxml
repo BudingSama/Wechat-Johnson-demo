@@ -23,5 +23,6 @@
     <button class='btn' bindtap="takephotoFn">调用拍照</button>
     <button class='btn' bindtap="wifiFn">WIFI配网</button>
     <button class='btn' bindtap="mqttFn">MQTT</button>
+    <button class='btn' bindtap="bleFn">BLE调试</button>
   </view>
 </view>

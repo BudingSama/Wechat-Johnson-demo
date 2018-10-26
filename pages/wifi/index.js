@@ -11,10 +11,27 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  start:function(){
+    wx.request({
+      url: 'http://10.10.10.1:8000/config-write-uap',
+      method: 'POST',
+      data:
+        {
+          'PASSWORD': "88888888",
+          'SSID': "mxchip-offices",
+          'IDENTIFIER': 1221684807,
+          'DHCP': true
+        },
+      complete: function (res) {
+        console.log(res)
+      }
+
+    })
+  },
   onLoad: function (options) {
     wx.startLocalServiceDiscovery({
       // 当前手机所连的局域网下有一个 _http._tcp. 类型的服务
-      serviceType: '_http._tcp.',
+      serviceType: '_easylink._tcp.',
       success: function(res){
         console.log(res);
       },
