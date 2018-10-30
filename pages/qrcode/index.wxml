@@ -1,0 +1,2 @@
+<canvas class='share-canvas' canvas-id='shareCanvas'></canvas>
+  <button bindtap='shareFn'>保存分享</button>

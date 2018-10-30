@@ -99,6 +99,11 @@ Page({
       url: '/pages/bletest/index',
     })
   },
+  qrcodeFn:()=>{
+    wx.navigateTo({
+      url: '/pages/qrcode/index',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

@@ -24,5 +24,6 @@
     <button class='btn' bindtap="wifiFn">WIFI配网</button>
     <button class='btn' bindtap="mqttFn">MQTT</button>
     <button class='btn' bindtap="bleFn">BLE调试</button>
+    <button class='btn' bindtap="qrcodeFn">qrcode</button>
   </view>
 </view>

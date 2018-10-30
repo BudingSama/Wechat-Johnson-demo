@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/qrcode/index",
     "pages/logs/logs",
     "pages/bluetooth/index",
     "pages/wxrun/index",
@@ -23,7 +24,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#eee",
-    "navigationBarTitleText": "DEMO",
+    "navigationBarTitleText": "wxdemo",
     "navigationBarTextStyle":"black"
   }
 }

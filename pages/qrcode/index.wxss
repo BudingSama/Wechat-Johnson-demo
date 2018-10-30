@@ -1,0 +1,7 @@
+.share-canvas{
+  width: 600rpx;
+  height: 1000rpx;
+  position: relative;
+  z-index: 100;
+  border-radius: 8rpx;
+}
